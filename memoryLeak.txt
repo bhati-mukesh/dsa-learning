@@ -1,0 +1,114 @@
+✅ What is a Memory Leak in React?
+A memory leak occurs when memory (data, resources, subscriptions) used by your app is no longer needed but never released — so it keeps accumulating, leading to slowdowns, crashes, or browser performance issues.
+
+
+📌 In React, common causes of memory leaks:
+Async operations (fetch, setTimeout) not cancelled
+Subscriptions (WebSocket, EventListener) not cleaned up
+Components trying to update state after unmount
+Unused refs or DOM nodes retained unintentionally
+Large state trees kept in memory (e.g., in Redux or context)
+
+
+🔍 Signs of Memory Leaks
+Console warning:
+    ⚠️ Can't perform a React state update on an unmounted component
+Increased RAM usage over time
+Slow re-renders, degraded performance
+Unresponsive UI after prolonged usage
+
+
+✅ Real-World Example of Memory Leak
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setData("value"); // ⚠️ Will throw warning if component unmounted
+  }, 2000);
+}, []);
+If the component unmounts before the timeout fires, you get:
+In console Warning: “Can't perform a React state update on an unmounted component.”
+
+
+
+✅ How to Prevent Memory Leaks in React
+
+Here are practical strategies (with examples) to prevent memory leaks in React apps:
+1️⃣ Use Cleanup in useEffect
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log("ping");
+  }, 1000);
+
+  return () => clearInterval(interval); // ✅ Clean up on unmount
+}, []);
+✅ Always return a cleanup function in useEffect.
+
+2️⃣ Cancel Promises / Async Tasks Manually
+useEffect(() => {
+  let isCancelled = false;
+
+  fetchUserData().then((data) => {
+    if (!isCancelled) setUser(data);
+  });
+
+  return () => {
+    isCancelled = true; // ✅ Prevent state update
+  };
+}, []);
+Or use AbortController with Axios or fetch.
+
+
+3️⃣ Use AbortController for fetch requests
+useEffect(() => {
+  const controller = new AbortController();
+
+  fetch('/api/user', { signal: controller.signal })
+    .then(res => res.json())
+    .then(data => setData(data))
+    .catch(err => {
+      if (err.name !== 'AbortError') console.error(err);
+    });
+
+  return () => controller.abort(); // ✅ Cancel request on unmount
+}, []);
+
+
+4️⃣ Use useIsMounted() hook (as discussed earlier)
+const isMounted = useIsMounted();
+    useEffect(() => {
+    fetchData().then(data => {
+        if (isMounted.current) {
+        setData(data);
+        }
+    });
+}, []);
+✅ Prevents state update if component unmounted.
+
+
+5️⃣ Cleanup Subscriptions and Listeners
+useEffect(() => {
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+✅ Same for WebSocket, custom events, etc.
+
+
+6️⃣ Avoid Retaining Unused Refs or Objects
+Avoid doing this:
+    const bigDataRef = useRef(hugeObject);
+If hugeObject isn’t needed anymore, this can keep it in memory. Clean it up if needed, or set ref.current = null.
+
+
+7️⃣ Avoid Keeping Stale Data in Global State (Redux, Context)
+Don’t store large data objects in Redux or context if they aren’t needed anymore.
+✅ Use resetState() actions or clearData() to free memory when navigating away or on logout.
+
+
+8️⃣ Use Lazy Loading & Code Splitting
+React.lazy()
+React.Suspense
+Dynamic imports
+✅ Keeps memory footprint smaller by loading only what’s needed.
+
+
+✅ What to Say in Interviews
+“Memory leaks in React often come from side effects like API calls, timers, or event listeners that continue running after a component unmounts. I prevent them by always cleaning up inside useEffect, cancelling requests using AbortController, and using a custom useIsMounted() hook to avoid updating state on unmounted components. Also, we manage global state carefully to avoid retaining stale or large objects.”
