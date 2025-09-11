@@ -1,0 +1,8 @@
+1- Interviewer: What is Virtual DOM?
+Ans: It’s a lightweight, in-memory representation of the actual real DOM. Think of it like a draft version of your UI that React uses behind the scenes.
+
+2- Interviewer:  Why does React use it?
+Ans: Because directly updating the real DOM is slow. React updates the Virtual DOM first, figures out exactly what changed, and then updates only those parts in the real DOM.
+
+3- Interviewer:  How does it work?
+Ans: On each state or prop change, React re-renders the Virtual DOM. It compares the new tree (diffs) with the previous one. It calculates the actual minimal set of changes. Then it updates only the differences to the real DOM where its needed, reducing expensive DOM operations (using a process called reconciliation).

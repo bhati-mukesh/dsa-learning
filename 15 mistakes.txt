@@ -1,0 +1,24 @@
+These 15 Frontend Performance Mistakes Cost Companies Millions in Revenue
+
+𝗝𝗮𝘃𝗮𝗦𝗰𝗿𝗶𝗽𝘁 𝗢𝗽𝘁𝗶𝗺𝗶𝘇𝗮𝘁𝗶𝗼𝗻 𝗞𝗶𝗹𝗹𝗲𝗿𝘀
+1. Massive Bundle Sizes: 500KB+ JavaScript on mobile
+2. Blocking Third-Party Scripts: Analytics killing page load
+3. Memory Leaks: Event listeners never cleaned up
+4. Synchronous Operations: Blocking main thread for 100ms+
+
+𝗥𝗲𝗮𝗰𝘁 𝗣𝗲𝗿𝗳𝗼𝗿𝗺𝗮𝗻𝗰𝗲 𝗕𝗹𝘂𝗻𝗱𝗲𝗿𝘀
+5. Unnecessary Re-renders: Components updating 100+ times
+6. Missing Memoization: Expensive calculations every render
+7. Props Drilling: 10+ levels deep state passing
+8. Large Lists Without Virtualization: 1000+ DOM nodes
+
+𝗪𝗲𝗯 𝗩𝗶𝘁𝗮𝗹𝘀 𝗗𝗲𝘀𝘁𝗿𝗼𝘆𝗲𝗿𝘀
+9. Poor LCP: Images loading after 4+ seconds
+10. CLS Nightmares: Layout shifts during user interaction
+11. FID Problems: 300ms+ response to user input
+12. Resource Loading: No preloading critical assets
+
+𝗔𝗽𝗶 𝗮𝗻𝗱 𝗦𝘁𝗮𝘁𝗲 𝗠𝗶𝘀𝘁𝗮𝗸𝗲𝘀
+13. No Request Deduplication: Same API called 10+ times
+14. Overfetching Data: Loading 100KB for 1KB needed
+15. No Caching Strategy: Fresh API calls on every navigation

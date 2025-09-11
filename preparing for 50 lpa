@@ -1,0 +1,73 @@
+1. Implement Promise Polyfill - https://lnkd.in/djfmpmVE
+
+2. How to implement DOM like structure tree? - https://lnkd.in/deZ7ef89
+
+3. How to detect overlapping circles in React.js? - https://lnkd.in/dDE_mhZA
+
+4. Implement classNames - https://lnkd.in/d9F2x3rx
+
+5. Promise Scheduler - https://lnkd.in/d6m4Tg8p
+
+
+1. Promise Scheduler with controls - https://lnkd.in/d6m4Tg8p (Hive.ai)
+
+2. ComposeAsync - https://lnkd.in/dtZmsg4U (Adobe)
+
+3. Progress Bar with controls - https://lnkd.in/dfj43mPW
+
+4. Flipping Card - https://lnkd.in/dEiy4hRr
+
+
+
+https://github.com/Devtools-Tech-Team/uber-dsa-questions
+https://devtools.tech/questions/all?companies=uber
+
+
+Ready to lead frontend teams? These questions test your ability to design, scale, and optimise complex systems.
+
+**Architecture & Patterns**
+
+1. How do you design a micro-frontend with independent deployments?
+2. Compare trade-offs in state management (Redux, Zustand, Context).
+3. How do you scale a design system across multiple teams?
+4. How do you manage shared dependencies in a monorepo?
+
+**React & Performance**
+5. How do you handle SSR + hydration in complex apps?
+6. Explain React 18’s concurrent features.
+7. How do you optimise bundle splitting?
+8. What’s your approach to efficient data fetching?
+
+**Build & DX**
+9. How do you set up CI/CD for multi-env apps?
+10. Feature flags at scale?
+11. Monitoring + error tracking strategy?
+12. How do you run A/B tests in React apps?
+
+**Modern Web**
+13. PWA features for UX improvements?
+14. Building fully responsive apps?
+15. Offline functionality & sync handling?
+16. Real-time features (WebSockets, SSE)?
+
+**Leadership & Quality**
+17. Code reviews & quality standards?
+18. Managing technical debt?
+19. Mentoring juniors & conducting interviews?
+20. Migrating legacy apps to modern stacks?
+
+**Senior Frontend Leader Focus**
+
+* Define architecture & tech roadmap
+* Mentor devs & set best practices
+* Collaborate across product, design, backend
+* Optimize performance for scale
+* Drive innovation with new tech
+
+**What Companies Expect**
+
+* Experience leading 5+ member teams
+* Built apps scaling to 100K+ users
+* Deep web standards & browser expertise
+* Strong architectural decision-making
+* Excellent communication & stakeholder skills
